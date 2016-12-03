@@ -7,53 +7,70 @@ Data-Buffering을 위해 html이 아닌 spring from tag를 이용해야한다. -
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
+<!-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css"> -->
 <title>Insert title here</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<a href="${pageContext.request.contextPath}/">홈페이지로 돌아가기</a>
+	<div class="container">
+	
+		<a href="${pageContext.request.contextPath}/">홈페이지로 돌아가기</a>
 
-	<sf:form method="get" action="${pageContext.request.contextPath}/docreate"
-	modelAttribute="course">
-		<table class="formtable">
+		<sf:form class="form-signin" method="get" action="${pageContext.request.contextPath}/docreate" modelAttribute="course">
+			
+			<center>
+			<table>
 			<tr>
-				<td class="lable">수강년도 :</td>
-				<td><sf:input class="control" path="year" type="text" /><br>
+				<td><label for="year">수강년도</label> </td>
+				<td><sf:input class="form-control" path="year" type="text" placeholder="ex)2017" /><br>
 					<sf:errors cssClass="error" path="year"></sf:errors></td>
 			</tr>
 			<tr>
-				<td class="lable">수강학기 :</td>
-				<td><sf:input class="control" path="semester" type="text" /><br>
+				<td><label for="semester">수강학기</label> </td>
+				<td><sf:input class="form-control" path="semester" type="text" id="semester" placeholder="ex)1 또는 2" /><br>
 					<sf:errors cssClass="error" path="semester"></sf:errors></td>
 			</tr>
 			<tr>
-				<td class="lable">교과목 코드 :</td>
-				<td><sf:input class="control" path="code" type="text" /><br>
+				<td><label for="code">교과목코드</label> </td>
+				<td><sf:input class="form-control" path="code" type="text" id="code" placeholder="ex)CSE0001" /><br>
 					<sf:errors cssClass="error" path="code"></sf:errors></td>
 			</tr>
 			<tr>
-				<td class="lable">교과목명 :</td>
-				<td><sf:input class="control" path="name" type="text" /><br>
+				<td><label for="name">교과목명</label> </td>
+				<td><sf:input class="form-control" path="name" type="text" id="name" placeholder="ex)웹프레임워크2" /><br>
 					<sf:errors cssClass="error" path="name"></sf:errors></td>
 			</tr>
 			<tr>
-				<td class="lable">이수구분 :</td>
-				<td><sf:input class="control" path="type" type="text" /><br>
+				<td><label for="type">이수구분</label> </td>
+				<td><sf:input class="form-control" path="type" type="text" id="type" placeholder="ex)전선" /><br>
 					<sf:errors cssClass="error" path="type"></sf:errors></td>
 			</tr>
 			<tr>
-				<td class="lable">학점 :</td>
-				<td><sf:input class="control" path="credit" type="text"/><br>
+				<td><label for="credit">학점</label> </td>
+				<td><sf:input class="form-control" path="credit" type="text" id="credit" placeholder="ex)3" /><br>
 					<sf:errors cssClass="error" path="credit"></sf:errors></td>
 			</tr>
 			<tr>
 				<td class="lable"></td>
-				<td><input class="control" type="submit" value="Create Course"/></td>
+				<!-- <td><input class="control" type="submit" value="Create Course"/></td> -->
+				<td> <button class="btn btn-lg btn-primary " type="submit" value="Create Course">Create Course</button> <td>
 			</tr>
 
 		</table>
-	</sf:form>
+		</center>
+		</sf:form>
+
+	</div>
+
 
 </body>
 </html>
